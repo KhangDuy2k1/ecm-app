@@ -1,21 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const searchTextSlice = createSlice({
+const categorySlice = createSlice({
   name: 'search',
   initialState: {
-    text: "",
-    cartData: []
+    id_category: "",
   },
   reducers: {
-    setTextSearch: (state, action) => {
-      state.text = action.payload;
-    },
-    addToCart: (state: any, action: any) => { 
-        console.log(action.payload);
-      state.cartData.push(action.payload);
+    setIdCategory: (state, action) => {
+      state.id_category = action.payload;
     }
   },
 });
 
-export const { setTextSearch, addToCart } = searchTextSlice.actions;
-export default searchTextSlice.reducer;
+export const  { setIdCategory } = categorySlice.actions;
+export default categorySlice.reducer;

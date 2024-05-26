@@ -2,16 +2,24 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import { CartData } from "../../../../data/cart";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../../common/redux/slice/search";
+// import { addToCart } from "../../../../common/redux/slice/search";
+import { Dimensions } from "react-native";
+import { addToCart } from "../../../../apis/addToCart";
+const { width } = Dimensions.get('window');
+const widthItem = width/2 - 20
 export const ProductItem = ({item}) => {
-    const addCart = () => {
-        alert("đã thêm vào giỏ hàng");
+    const addCart = async() => {
+        try {
+          const res = await addToCart(item._id);
+          alert("thêm vào giỏ hàng thành công")
+        } catch (error: any) {
+          alert(error.response.data.message);
+        }
     }
-  
     return (
     <TouchableOpacity >
       <View style = {styles.item}>
-            <Image style = {styles.image} source={{uri: item.url}}/>
+            <Image style = {styles.image} source={{uri: item.img}}/>
             <View style = {{marginLeft: 10,marginTop: 15}}>
                 <Text numberOfLines={1} style = {styles.name}>{item.name}</Text>
                 <Text style = {styles.price}>{item.price} VNĐ</Text>
@@ -26,9 +34,13 @@ export const ProductItem = ({item}) => {
 }
 const styles = StyleSheet.create({
     item: {
+        display: "flex",
+        alignItems: "center",
+        // flexDirection: "row",
+        // justifyContent: "center",
         backgroundColor: "#f5f5f0",
         borderRadius: 10,
-        width: 190,
+        width: widthItem,
         height: 350,
         padding: 10,
         marginBottom: 10,

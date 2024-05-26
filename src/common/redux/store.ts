@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchTextSlice from "./slice/search";
+import CategorySlice from "./slice/search";
 export const store = configureStore({
     reducer: {
-       search: searchTextSlice
+       category: CategorySlice
     }
 })
