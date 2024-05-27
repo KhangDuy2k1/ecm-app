@@ -12,7 +12,6 @@ export const ProductList = () => {
   const [productFil, setProductFil] = useState([]);
   const navigation = useNavigation()
   const id_category = useSelector((state: any) => state.category.id_category)
-  console.log(id_category);
   const dispatch = useDispatch()
   const filProduct = (list: any[]) => {
     return list.filter((data: any) => {
@@ -30,7 +29,6 @@ export const ProductList = () => {
     const getAP = async() => {
         try {
           const res = await getAllProduct()
-          console.log(res.allProducts);
           setProductList(res.allProducts)
         } catch (error) {
           alert("lỗi");

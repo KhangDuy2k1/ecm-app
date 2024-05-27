@@ -7,7 +7,7 @@ import { getAllCategory } from '../../../apis/getAllCategory';
 
 export const Category = () => {
   const [categories, setCategories] = useState([]);
-  const id_category = useSelector((state: any) => state.category.id_category )
+  const id_category = useSelector((state: any) => state.category.id_category)
   useEffect(() => {
       const getACate = async() => {
           try {
@@ -27,8 +27,6 @@ export const Category = () => {
         })
       }
     </ScrollView>
-  
-
   </View>
 };
 

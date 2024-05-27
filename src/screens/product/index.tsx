@@ -1,8 +1,7 @@
 import { View, Text } from "react-native"
-export const ProductScreen = () => { 
+import { Product } from "../../component/product";
+export const ProductScreen = ({route}) => { 
     return (
-        <View>
-            <Text>Khang duy</Text>
-        </View>
+        <Product id_product = {route.params.id_product}/>
     )
 }

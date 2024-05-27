@@ -11,7 +11,6 @@ export const Login = ({ navigation }) => {
 
   const handleLogin = async() => {
     try {
-        console.log("hello");
         const respone = await login({username: username, password: password})
         await saveToken(respone.accessToken);
         DevSettings.reload()

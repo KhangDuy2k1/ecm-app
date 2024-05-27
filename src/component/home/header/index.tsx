@@ -8,7 +8,7 @@ export const Header = () => {
       <View style={styles.leftContainer}>
         <Image source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFTsDgK5faSWP9Ngt_xnr4La9brpoOmYiss4WZCBBR-Q&s" }} style={styles.avatar} />
       </View>
-      <Text style={styles.name}>Hello, Khang!</Text>
+      <Text style={styles.name}>Hello, Quý!</Text>
       <Text style={styles.notificationIcon}>🔔</Text>
     </View>
   );

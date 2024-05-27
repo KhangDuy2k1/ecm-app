@@ -12,6 +12,7 @@ import { HomeScreen } from './screens/home';
 import { CartScreen } from './screens/cart';
 import { ProductScreen } from './screens/product';
 import { OrderScreen } from './screens/order';
+import { OrderDetailScreen } from './screens/orderDetail';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
 export const MainStack = () => {
@@ -59,16 +60,11 @@ export const MainStack = () => {
           }
          />
          <Tab.Screen name = "product" component={ProductScreen}
-         options={
-          {
+          options={{
             unmountOnBlur: true,
             headerTitle: "Sản phẩm",
-            tabBarLabel: "Sản phẩm",
-            tabBarIcon:  ({ color, size }) => (
-              <FontIcon name="tshirt" color={color} size={30} />
-            )
-            }
-          }
+            tabBarButton: () => null,
+          }}
          />
          <Tab.Screen name = "order" component={OrderScreen}
          options={
@@ -81,7 +77,16 @@ export const MainStack = () => {
             )
             }
           }
-         />
+          />
+          <Tab.Screen
+          name="orderDetail"
+          component={OrderDetailScreen}
+          options={{
+            unmountOnBlur: true,
+            headerTitle: "Dặt hàng", // Ẩn thanh tiêu đề
+            tabBarButton: () => null, // Ẩn nút tab
+          }}
+        />
       </Tab.Navigator>
     }
      

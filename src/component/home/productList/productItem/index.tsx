@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../../../../common/redux/slice/search";
 import { Dimensions } from "react-native";
 import { addToCart } from "../../../../apis/addToCart";
+import { useNavigation } from "@react-navigation/native";
 const { width } = Dimensions.get('window');
 const widthItem = width/2 - 20
 export const ProductItem = ({item}) => {
+    const navigation = useNavigation();
     const addCart = async() => {
         try {
           const res = await addToCart(item._id);
@@ -16,8 +18,11 @@ export const ProductItem = ({item}) => {
           alert(error.response.data.message);
         }
     }
+    const clickProduct = () => {
+        navigation.navigate("product", {id_product: item._id});
+    }
     return (
-    <TouchableOpacity >
+    <TouchableOpacity onPress={clickProduct}>
       <View style = {styles.item}>
             <Image style = {styles.image} source={{uri: item.img}}/>
             <View style = {{marginLeft: 10,marginTop: 15}}>

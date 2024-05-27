@@ -8,14 +8,11 @@ export const CategoryItem = ({category, id}) => {
         return id === category._id;
     }
     const selectCategory = () => {
-       if(id_category === category._id) {
+       if(id_category === category._id){
         dispatch(setIdCategory(""))
         return;
        }
        dispatch(setIdCategory(category._id));
-    }
-    const all = () => {
-        console.log("all")
     }
     return (
         <TouchableOpacity onPress={selectCategory}>
